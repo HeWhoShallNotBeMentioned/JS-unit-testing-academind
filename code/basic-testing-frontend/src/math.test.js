@@ -20,5 +20,17 @@ it('should yield NaN if at least one invalid number is provided', () => {
 
   const results1 = add(inputs1);
 
-  expect(results1).toBe(NaN);
+  expect(results1).toBeNaN();
+});
+
+it('It should provide a correct sum if an array of numeric string values is provided', () => {
+  const inputs = ['9', '5', '3', '8'];
+
+  const expectedResult = inputs.reduce((prevVal, currVal) => {
+    return prevVal + parseInt(currVal);
+  }, 0);
+
+  const result = add(inputs);
+
+  expect(result).toBe(expectedResult);
 });
