@@ -1,4 +1,5 @@
 import { test, it, expect } from 'vitest';
+// test and it are synonyms
 
 import { add } from './math';
 
@@ -33,4 +34,12 @@ it('It should provide a correct sum if an array of numeric string values is prov
   const result = add(inputs);
 
   expect(result).toBe(expectedResult);
+});
+
+it(' should yield 0 if an empty array is provided', () => {
+  const inputs = [];
+
+  const result = add(inputs);
+
+  expect(result).toBe(0);
 });
