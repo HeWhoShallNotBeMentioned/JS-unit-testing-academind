@@ -43,3 +43,13 @@ it(' should yield 0 if an empty array is provided', () => {
 
   expect(result).toBe(0);
 });
+
+it('should throw an error if no value is passed into the add function', () => {
+  const resultFn = () => {
+    add();
+  };
+  // generic error test
+  expect(resultFn).toThrow();
+  // test for specfic error message
+  expect(resultFn).toThrowError('numbers is not iterable');
+});
