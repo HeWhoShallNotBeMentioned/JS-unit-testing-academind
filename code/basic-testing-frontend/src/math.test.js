@@ -36,7 +36,7 @@ it('It should provide a correct sum if an array of numeric string values is prov
   expect(result).toBe(expectedResult);
 });
 
-it(' should yield 0 if an empty array is provided', () => {
+it('should yield 0 if an empty array is provided', () => {
   const inputs = [];
 
   const result = add(inputs);
@@ -52,4 +52,15 @@ it('should throw an error if no value is passed into the add function', () => {
   expect(resultFn).toThrow();
   // test for specfic error message
   expect(resultFn).toThrowError('numbers is not iterable');
+});
+
+it('should throw an error if provided with multiple arguments instead of an array', () => {
+  const num1 = 1;
+  const num2 = 2;
+
+  const resultFn = () => {
+    add(num1, num2);
+  };
+
+  expect(resultFn).toThrow();
 });
