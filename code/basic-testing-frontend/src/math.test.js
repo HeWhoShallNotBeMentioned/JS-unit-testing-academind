@@ -62,5 +62,10 @@ it('should throw an error if provided with multiple arguments instead of an arra
     add(num1, num2);
   };
 
+  // generic error test
   expect(resultFn).toThrow();
+  // using regex to pull out part of the error
+  expect(resultFn).toThrow(/is not iterable/);
+  // using toThrowError to find part of the error message. Whole message is "numbers is not iterable"
+  expect(resultFn).toThrowError('is not iterable');
 });
