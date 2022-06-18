@@ -11,6 +11,7 @@ it('should take a number is string format and convert it to a number', () => {
   const expectedResult = transformToNumber(text1);
 
   // Assert
+  expect(result).toBeTypeOf('number');
   expect(result).toBe(expectedResult);
 });
 
