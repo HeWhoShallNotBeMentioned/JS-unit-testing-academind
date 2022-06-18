@@ -17,10 +17,14 @@ it('should take a number is string format and convert it to a number', () => {
 
 it('should return NaN if string cannot be converted to a number', () => {
   const text1 = 'fifty-five';
+  const text2 = {};
 
   const expectedResult = transformToNumber(text1);
 
+  const expectedResult2 = transformToNumber(text2);
+
   expect(expectedResult).toBeNaN();
+  expect(expectedResult2).toBeNaN();
 });
 
 it('should retun NaN when no arg is passed', () => {
