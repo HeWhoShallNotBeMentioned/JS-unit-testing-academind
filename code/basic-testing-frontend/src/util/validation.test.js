@@ -14,27 +14,38 @@ describe('validateStringNotEmpty()', () => {
     expect(result2).toThrowError('Invalid input - must not be empty.');
   });
 });
+
 describe('validateNumber()', () => {
-  it('will return an error is a number is not entered', () => {
-    const num = 'four';
+  it('Will not throw an error when a number is entered', () => {
     const num2 = 4;
-    const num3 = true;
-    const num4 = {};
-    const num5 = NaN;
-    const num6 = '20';
-
-    const result = () => validateNumber(num);
     const result2 = () => validateNumber(num2);
-    const result3 = () => validateNumber(num3);
-    const result4 = () => validateNumber(num4);
-    const result5 = () => validateNumber(num5);
-    const result6 = () => validateNumber(num6);
-
-    expect(result).toThrowError('Invalid number input.');
     expect(result2).not.toThrowError();
-    expect(result3).toThrowError('Invalid number input.');
-    expect(result4).toThrowError('Invalid number input.');
-    expect(result5).toThrowError('Invalid number input.');
-    expect(result6).toThrowError('Invalid number input.');
   });
+  it('will return an error if a spelled out number is not entered', () => {
+    const num = 'four';
+    const result = () => validateNumber(num);
+    expect(result).toThrowError('Invalid number input.');
+  });
+});
+
+it('will return an error if boolean is entered', () => {
+  const num3 = true;
+  const result3 = () => validateNumber(num3);
+  expect(result3).toThrowError('Invalid number input.');
+});
+
+it('will return an error if an obj is entered', () => {
+  const num4 = {};
+  const result4 = () => validateNumber(num4);
+  expect(result4).toThrowError('Invalid number input.');
+});
+it('will return an error if NaN is entered', () => {
+  const num5 = NaN;
+  const result5 = () => validateNumber(num5);
+  expect(result5).toThrowError('Invalid number input.');
+});
+it('', () => {
+  const num6 = '20';
+  const result6 = () => validateNumber(num6);
+  expect(result6).toThrowError('Invalid number input.');
 });

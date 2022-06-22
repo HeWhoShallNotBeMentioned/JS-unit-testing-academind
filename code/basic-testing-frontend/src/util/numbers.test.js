@@ -9,14 +9,23 @@ describe('transformToNumber()', () => {
 
     // Act
     const result = parseInt(text1);
-    const expectedResult = transformToNumber(text1);
 
     // Assert
     expect(result).toBeTypeOf('number');
-    expect(result).toBe(expectedResult);
   });
 
-  it('should return NaN if string cannot be converted to a number', () => {
+  it('should take a number is string format and convert it to a number', () => {
+    // Arrange
+    const text1 = '55';
+
+    // Act
+    const expectedResult = transformToNumber(text1);
+
+    // Assert
+    expect(parseInt(text1)).toBe(expectedResult);
+  });
+
+  it('should return NaN if passed a non-transformable value', () => {
     const text1 = 'fifty-five';
     const text2 = {};
 
