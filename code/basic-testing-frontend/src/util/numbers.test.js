@@ -8,7 +8,7 @@ describe('transformToNumber()', () => {
     const text1 = '55';
 
     // Act
-    const result = parseInt(text1);
+    const result = transformToNumber(text1);
 
     // Assert
     expect(result).toBeTypeOf('number');
