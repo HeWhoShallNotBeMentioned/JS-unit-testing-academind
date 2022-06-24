@@ -53,6 +53,12 @@ describe('cleanNumbers()', () => {
     expect(cleanedNumbers[1]).toBeTypeOf('number');
     expect(cleanedNumbers[2]).toBeTypeOf('number');
   });
-  // it('', () => {});
+  it('should throw an error if an array with at least one empty string is passed', () => {
+    const numberValues = ['1', ''];
+    const resultsFn = () => {
+      cleanNumbers(numberValues);
+    };
+    expect(resultsFn).toThrowError('Invalid input - must not be empty.');
+  });
   // it('', () => {});
 });
