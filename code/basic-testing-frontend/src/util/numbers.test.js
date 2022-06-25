@@ -46,12 +46,10 @@ describe('transformToNumber()', () => {
 
 describe('cleanNumbers()', () => {
   it('should return an array of number values if an array of string values is provided.', () => {
-    const numberValues = ['1', '2', '3'];
+    const numberValues = ['1', '2'];
     const cleanedNumbers = cleanNumbers(numberValues);
 
-    expect(cleanedNumbers[0]).toBeTypeOf('number');
-    expect(cleanedNumbers[1]).toBeTypeOf('number');
-    expect(cleanedNumbers[2]).toBeTypeOf('number');
+    expect(cleanedNumbers).toEqual([1, 2]);
   });
   it('should throw an error if an array with at least one empty string is passed', () => {
     const numberValues = ['1', ''];
