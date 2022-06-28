@@ -2,6 +2,7 @@ import { it, expect, describe, vi } from 'vitest';
 
 import { generateReportData, storeData } from './data.js';
 
+// create a spy function so that the logFn is not run with side effects
 describe('generateReportData()', () => {
   it('should execute LogFn if it is provided', () => {
     const logger = vi.fn();
