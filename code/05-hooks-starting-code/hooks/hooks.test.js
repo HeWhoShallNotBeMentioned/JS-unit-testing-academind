@@ -22,6 +22,10 @@ afterEach(() => {
   console.log('afterEach');
 });
 
+// describe.concurrent runs all the tests in the block concurrently
+// can also do it for individual tests with it.concurrent
+// by default, different test pages are concurrently
+
 it('should update the email', () => {
   const newTestEmail = 'test2@test.com';
 
