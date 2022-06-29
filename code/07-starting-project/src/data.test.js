@@ -6,6 +6,9 @@ import { generateReportData, storeData } from './data.js';
 describe('generateReportData()', () => {
   it('should execute LogFn if it is provided', () => {
     const logger = vi.fn();
+
+    // Can replace the fn above
+    logger.mockImplementation(() => {});
     generateReportData(logger);
     expect(logger).toHaveBeenCalled();
   });
