@@ -10,6 +10,7 @@ vi.mock('path', () => {
   return {
     default: {
       join: (...args) => {
+        console.log('args ++++++++++++++++++', args);
         return args[args.length - 1];
       },
     },
@@ -22,7 +23,15 @@ it('should execute the writefile method', () => {
 
   writeData(data, filename);
 
-  //return expect(writeData(data, filename)).resolves.toBeUndefined();
+  expect(fs.writeFile).toBeCalledWith(filename, data);
+});
+
+it('should return a promise to no value', () => {
+  const data = 'Smithson';
+  const filename = 'cats.txt';
+
+  writeData(data, filename);
+
+  expect(writeData(data, filename)).resolves.toBeUndefined();
   //return expect(fs.writeFile).toBeCalled();
-  return expect(fs.writeFile).toBeCalledWith(filename, data);
 });
