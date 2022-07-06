@@ -11,6 +11,11 @@ const document = window.document;
 document.write(htmlDOcumentContent);
 vi.stubGlobal('document', document);
 
-it('first test of the dom', () => {
+it('should add an error paragraph to the id="errors" element', () => {
   showError('test');
+
+  const errorsEl = document.getElementById('errors');
+  const errorParagraph = errorsEl.firstElementChild;
+
+  expect(errorParagraph).not.toBeNull();
 });
